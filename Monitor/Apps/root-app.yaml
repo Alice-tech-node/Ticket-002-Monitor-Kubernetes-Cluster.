@@ -14,7 +14,7 @@ spec:
     targetRevision: main
     
     # 2. WHAT TO LOOK AT: The directory containing your other Argo CD app manifests
-    path: Apps 
+    path: Monitor/Apps 
     
   destination:
     # 3. WHERE TO DEPLOY THEM: Right back into the local Argo CD control plane
