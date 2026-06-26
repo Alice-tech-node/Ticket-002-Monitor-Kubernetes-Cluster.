@@ -1,15 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: root-application
+  name: root-infrastructure-application
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/Alice-tech-node/Ticket-002-Monitor-Kubernetes-Cluster.git'
+    # Points to your repository
+    repoURL: 'https://github.com/Alice-tech-node/Ticket-002-Monitor-Kubernetes-Cluster.'
     targetRevision: main
+    # Points to a different folder containing other foundational tools if needed
     path: Monitor/Apps
   destination:
     server: 'https://kubernetes.default.svc'
@@ -18,5 +20,7 @@ spec:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
     
 
