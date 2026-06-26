@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: root-application
+  namespace: argocd
+  # The finalizer ensures that if you delete the root app, it cleans up all child apps too
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    # 1. WHERE TO LOOK: Your Git repository URL
+    repoURL: 'https://github.com/your-username/your-gitops-repo.git'
+    targetRevision: HEAD
+    
+    # 2. WHAT TO LOOK AT: The directory containing your other Argo CD app manifests
+    path: apps 
+    
+  destination:
+    # 3. WHERE TO DEPLOY THEM: Right back into the local Argo CD control plane
+    server: 'https://kubernetes.default.svc'
+    namespace: argocd
+    
+  # 4. HOW TO SYNC: Automate everything so changes in Git sync instantly
+  syncPolicy:
+    automated:
+      prune: true     # Automatically deletes infrastructure if you delete its file in Git
+      selfHeal: true  # Automatically fixes "configuration drift" if someone tweaks K8s manually
