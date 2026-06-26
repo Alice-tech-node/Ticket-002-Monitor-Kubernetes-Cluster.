@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     #  Git repository URL
-    repoURL: 'https://github.com/Alice-tech-node/Ticket-002-Monitor-Kubernetes-Cluster.'
+    repoURL: 'https://github.com/Alice-tech-node/Ticket-002-Monitor-Kubernetes-Cluster.git'
     targetRevision: main
     path: monitoring-stack  # Points to the directory containing the child apps
   destination:
