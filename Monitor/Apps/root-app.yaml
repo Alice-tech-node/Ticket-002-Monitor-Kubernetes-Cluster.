@@ -10,11 +10,11 @@ spec:
   project: default
   source:
     # 1. WHERE TO LOOK: Your Git repository URL
-    repoURL: 'https://github.com/your-username/your-gitops-repo.git'
-    targetRevision: HEAD
+    repoURL: 'https://github.com/Alice-tech-node/Ticket-002-Monitor-Kubernetes-Cluster.'
+    targetRevision: main
     
     # 2. WHAT TO LOOK AT: The directory containing your other Argo CD app manifests
-    path: apps 
+    path: Apps 
     
   destination:
     # 3. WHERE TO DEPLOY THEM: Right back into the local Argo CD control plane
