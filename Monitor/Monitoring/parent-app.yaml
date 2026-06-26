@@ -7,8 +7,8 @@ spec:
   project: default
   source:
     # ⚠️ REPLACE THIS with your actual Git repository URL
-    repoURL: 'https://github.com/your-username/your-gitops-repo.git'
-    targetRevision: HEAD
+    repoURL: 'https://github.com/Alice-tech-node/Ticket-002-Monitor-Kubernetes-Cluster.'
+    targetRevision: main
     path: monitoring-stack  # Points to the directory containing the child apps
   destination:
     server: 'https://kubernetes.default.svc'
