@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     # Points to your repository
-    repoURL: 'https://github.com/Alice-tech-node/Ticket-002-Monitor-Kubernetes-Cluster.'
+    repoURL: 'https://github.com/Alice-tech-node/Ticket-002-Monitor-Kubernetes-Cluster.git'
     targetRevision: main
     # Points to a different folder containing other foundational tools if needed
     path: Monitor/Apps
