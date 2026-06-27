@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: kube-prometheus-stack
-  namespace: monitoring   # The controller manifest itself registers in argocd
+  namespace: argocd   # The controller manifest itself registers in argocd
 spec:
   project: default
   source:
@@ -11,8 +11,7 @@ spec:
     targetRevision: 61.3.1
   destination:
     server: 'https://kubernetes.default.svc'
-    # Isolated target workload destination!
-    namespace: monitoring 
+    namespace: monitoring # Isolated target workload destination!
   syncPolicy:
     automated:
       prune: true
