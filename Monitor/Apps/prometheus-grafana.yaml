@@ -2,8 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: kube-prometheus-stack
-  # The controller manifest itself registers in argocd
-  namespace: argocd 
+  namespace: monitoring   # The controller manifest itself registers in argocd
 spec:
   project: default
   source:
