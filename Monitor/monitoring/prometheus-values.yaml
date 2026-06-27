@@ -2,11 +2,11 @@ prometheus:
   prometheusSpec:
     resources:
       requests:
-        cpu: 200m
-        memory: 400Mi
+        cpu: 50m
+        memory: 64Mi
       limits:
-        cpu: 500m
-        memory: 1Gi
+        cpu: 200m
+        memory: 256mi
     retention: 7d
 
 alertmanager:
