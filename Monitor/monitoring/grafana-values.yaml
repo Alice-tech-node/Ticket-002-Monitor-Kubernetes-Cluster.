@@ -1,0 +1,42 @@
+adminPassword: "changeme-in-prod"
+
+datasources:
+  datasources.yaml:
+    apiVersion: 1
+    datasources:
+      - name: Prometheus
+        type: prometheus
+        url: http://prometheus-kube-prometheus-prometheus:9090
+        isDefault: true
+      - name: Loki
+        type: loki
+        url: http://loki:3100
+
+dashboardProviders:
+  dashboardproviders.yaml:
+    apiVersion: 1
+    providers:
+      - name: default
+        folder: "Glass Box"
+        type: file
+        options:
+          path: /var/lib/grafana/dashboards/default
+
+dashboards:
+  default:
+    kubernetes-pod-resources:
+      gnetId: 6417      # Official K8s pod dashboard from grafana.com
+      revision: 1
+      datasource: Prometheus
+
+service:
+  type: NodePort
+  nodePort: 32000       # Access at localhost:32000
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 300m
+    memory: 512Mi

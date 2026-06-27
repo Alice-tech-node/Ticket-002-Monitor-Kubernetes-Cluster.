@@ -1,0 +1,22 @@
+prometheus:
+  prometheusSpec:
+    resources:
+      requests:
+        cpu: 200m
+        memory: 400Mi
+      limits:
+        cpu: 500m
+        memory: 1Gi
+    retention: 7d
+
+alertmanager:
+  enabled: false   # keep it simple for now
+
+nodeExporter:
+  enabled: true    # scrapes host CPU/memory
+
+kubeStateMetrics:
+  enabled: true    # scrapes pod restart counts, states
+
+grafana:
+  enabled: false   # we'll deploy Grafana separately
