@@ -12,6 +12,11 @@ spec:
     helm:
       valueFiles:
         - $values/monitoring/grafana-values.yaml
+
+    repoURL: https://github.com/Alice-tech-node/Ticket-002-Monitor-Kubernetes-Cluster.
+    targetRevision: main
+    ref: values
+    
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
