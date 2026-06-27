@@ -3,24 +3,17 @@ kind: Application
 metadata:
   name: root-infrastructure-application
   namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
-    # Points to your repository
     repoURL: 'https://github.com/Alice-tech-node/Ticket-002-Monitor-Kubernetes-Cluster.git'
     targetRevision: main
-    # Points to a different folder containing other foundational tools if needed
     path: Monitor/Apps
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: argocd
+    namespace: argocd 
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
-    
 
